@@ -1,6 +1,6 @@
 # Mybatis 手撸专栏
 
-![](https://gitcode.net/TearSourceCode/small-mybatis/-/raw/master/docs/img/mybatis-220320-02.png)
+![](https://bugstack.cn/images/article/spring/mybatis-220320-02.png)
 
 像我们之前完成[手写 Spring](https://mp.weixin.qq.com/s/g7YdIe_FSrk-WE8nQRO3TA)一样，拆解功能、简化流程、渐进实现，让读者能够更容易的学习到最有价值的知识。
 
@@ -25,13 +25,13 @@
 
 从小傅哥最开始对 Mybatis 感兴趣，主要来自于好奇：**“为什么在使用 Mybatis 的时候，只需定义一个接口，不用写实现类就能使用 XML 中或者注解上配置好的 SQL 语句，就能完成对数据库 CRUD 的操作呢？” ** 原来这里最核心的是用到了接口代理类，把每一个数据库操作的 DAO 接口都用操作数据库的代理类实现，并注册到 Spring 容器让用户去使用。
 
-![Mybatis 代理实现调用封装返回结果](https://gitcode.net/TearSourceCode/small-mybatis/-/raw/master/docs/img/mybatis-220320-01.png)
+![Mybatis 代理实现调用封装返回结果](https://bugstack.cn/images/article/spring/mybatis-220320-01.png)
 
 其实很多时候对技术的`深度学习`就是来自于这样一点点的`好奇`和一晚晚的`折腾`，虽然会遇到很多磕磕绊绊的 bug，但经过自己的思考、整理、验证、汇总，你终会提炼出最有技术价值的核心流程和脉络信息，就像我们上面这张图一样，虽然它不是全部但这却是最重要的一部分。
 
 ## 4. 计划，执行落地
 
-![](https://gitcode.net/TearSourceCode/small-mybatis/-/raw/master/docs/img/mybatis-220320-03.png)
+![](https://bugstack.cn/images/article/spring/mybatis-220320-03.png)
 
 - 小傅哥之前也写过简版的 Mybatis、Mybatis-Spring，但当时主要是把重点放在和 Spring 的结合上，对于 ORM 的框架实现部分只是一个非常最基本的实现。
 - 所以计划这次按照 Mybatis 的框架结构，把重点放在 ORM 功能实现为主，通过源码分析和功能实现的方式完成这次框架功能的开发。在每次开发功能时候都会基于上次的章节进行内容迭代，慢慢的把这些功能类累加出来，这样的方式也更好让读者理解每一个功能都是怎么被设计进来并开发实现的。
