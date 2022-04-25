@@ -13,7 +13,7 @@
 - [【难度★★☆☆☆】第03章：实现映射器的注册和使用](https://bugstack.cn/md/spring/develop-mybatis/2022-04-04-%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E5%AE%9E%E7%8E%B0%E6%98%A0%E5%B0%84%E5%99%A8%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E4%BD%BF%E7%94%A8.html)
 - [【难度★★★☆☆】第04章：Mapper XML的解析和注册使用](https://bugstack.cn/md/spring/develop-mybatis/2022-04-09-%E7%AC%AC4%E7%AB%A0%EF%BC%9AXML%E7%9A%84%E8%A7%A3%E6%9E%90%E5%92%8C%E6%B3%A8%E5%86%8C%E4%BD%BF%E7%94%A8.html)
 - [【难度★★★☆☆】第05章：数据源的解析、创建和使用](https://bugstack.cn/md/spring/develop-mybatis/2022-04-17-%E7%AC%AC5%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E7%9A%84%E8%A7%A3%E6%9E%90%E3%80%81%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8.html)
-- [【难度★★★★☆】第6章：数据源池化技术实现]()
+- [【难度★★★★☆】第6章：数据源池化技术实现](https://bugstack.cn/md/spring/develop-mybatis/2022-04-23-%E7%AC%AC6%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%B1%A0%E5%8C%96%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0.html)
 
 ## 1. 为甚，撸Mybatis
 
