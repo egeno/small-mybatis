@@ -41,7 +41,7 @@ public class Reflector {
     // 构造函数
     private Constructor<?> defaultConstructor;
 
-    private Map<String, String> caseInsensitivePropertyMap = new HashMap<String, String>();
+    private Map<String, String> caseInsensitivePropertyMap = new HashMap<>();
 
     public Reflector(Class<?> clazz) {
         this.type = clazz;
@@ -62,7 +62,6 @@ public class Reflector {
             caseInsensitivePropertyMap.put(propName.toUpperCase(Locale.ENGLISH), propName);
         }
     }
-
 
     private void addDefaultConstructor(Class<?> clazz) {
         Constructor<?>[] consts = clazz.getDeclaredConstructors();
@@ -99,6 +98,7 @@ public class Reflector {
                 }
             }
         }
+        resolveGetterConflicts(conflictingGetters);
     }
 
     private void addSetMethods(Class<?> clazz) {
@@ -113,7 +113,48 @@ public class Reflector {
                 }
             }
         }
-        resolveGetterConflicts(conflictingSetters);
+        resolveSetterConflicts(conflictingSetters);
+    }
+
+    private void resolveSetterConflicts(Map<String, List<Method>> conflictingSetters) {
+        for (String propName : conflictingSetters.keySet()) {
+            List<Method> setters = conflictingSetters.get(propName);
+            Method firstMethod = setters.get(0);
+            if (setters.size() == 1) {
+                addSetMethod(propName, firstMethod);
+            } else {
+                Class<?> expectedType = getTypes.get(propName);
+                if (expectedType == null) {
+                    throw new RuntimeException("Illegal overloaded setter method with ambiguous type for property "
+                            + propName + " in class " + firstMethod.getDeclaringClass() + ".  This breaks the JavaBeans " +
+                            "specification and can cause unpredicatble results.");
+                } else {
+                    Iterator<Method> methods = setters.iterator();
+                    Method setter = null;
+                    while (methods.hasNext()) {
+                        Method method = methods.next();
+                        if (method.getParameterTypes().length == 1
+                                && expectedType.equals(method.getParameterTypes()[0])) {
+                            setter = method;
+                            break;
+                        }
+                    }
+                    if (setter == null) {
+                        throw new RuntimeException("Illegal overloaded setter method with ambiguous type for property "
+                                + propName + " in class " + firstMethod.getDeclaringClass() + ".  This breaks the JavaBeans " +
+                                "specification and can cause unpredicatble results.");
+                    }
+                    addSetMethod(propName, setter);
+                }
+            }
+        }
+    }
+
+    private void addSetMethod(String name, Method method) {
+        if (isValidPropertyName(name)) {
+            setMethods.put(name, new MethodInvoker(method));
+            setTypes.put(name, method.getParameterTypes()[0]);
+        }
     }
 
     private void addFields(Class<?> clazz) {
@@ -205,7 +246,7 @@ public class Reflector {
     }
 
     private void addMethodConflict(Map<String, List<Method>> conflictingMethods, String name, Method method) {
-        List<Method> list = conflictingMethods.computeIfAbsent(name, k -> new ArrayList<Method>());
+        List<Method> list = conflictingMethods.computeIfAbsent(name, k -> new ArrayList<>());
         list.add(method);
     }
 
@@ -391,7 +432,7 @@ public class Reflector {
     public static Reflector forClass(Class<?> clazz) {
         if (classCacheEnabled) {
             // synchronized (clazz) removed see issue #461
-            //对于每个类来说，我们假设它是不会变的，这样可以考虑将这个类的信息(构造函数，getter,setter,字段)加入缓存，以提高速度
+            // 对于每个类来说，我们假设它是不会变的，这样可以考虑将这个类的信息(构造函数，getter,setter,字段)加入缓存，以提高速度
             Reflector cached = REFLECTOR_MAP.get(clazz);
             if (cached == null) {
                 cached = new Reflector(clazz);

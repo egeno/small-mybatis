@@ -33,7 +33,7 @@ public interface ObjectFactory {
      * @param type Object type
      * @param constructorArgTypes Constructor argument types
      * @param constructorArgs Constructor argument values
-     * @return
+     * @return <T>
      */
     <T> T create(Class<T> type, List<Class<?>> constructorArgTypes, List<Object> constructorArgs);
 

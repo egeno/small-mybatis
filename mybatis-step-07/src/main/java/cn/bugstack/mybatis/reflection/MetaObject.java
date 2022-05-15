@@ -16,7 +16,6 @@ import java.util.Map;
  * @Copyright 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
  */
 public class MetaObject {
-
     // 原对象
     private Object originalObject;
     // 对象包装器
@@ -32,26 +31,26 @@ public class MetaObject {
         this.objectWrapperFactory = objectWrapperFactory;
 
         if (object instanceof ObjectWrapper) {
-            //如果对象本身已经是ObjectWrapper型，则直接赋给objectWrapper
+            // 如果对象本身已经是ObjectWrapper型，则直接赋给objectWrapper
             this.objectWrapper = (ObjectWrapper) object;
         } else if (objectWrapperFactory.hasWrapperFor(object)) {
-            //如果有包装器,调用ObjectWrapperFactory.getWrapperFor
+            // 如果有包装器,调用ObjectWrapperFactory.getWrapperFor
             this.objectWrapper = objectWrapperFactory.getWrapperFor(this, object);
         } else if (object instanceof Map) {
-            //如果是Map型，返回MapWrapper
+            // 如果是Map型，返回MapWrapper
             this.objectWrapper = new MapWrapper(this, (Map) object);
         } else if (object instanceof Collection) {
-            //如果是Collection型，返回CollectionWrapper
+            // 如果是Collection型，返回CollectionWrapper
             this.objectWrapper = new CollectionWrapper(this, (Collection) object);
         } else {
-            //除此以外，返回BeanWrapper
+            // 除此以外，返回BeanWrapper
             this.objectWrapper = new BeanWrapper(this, object);
         }
     }
 
     public static MetaObject forObject(Object object, ObjectFactory objectFactory, ObjectWrapperFactory objectWrapperFactory) {
         if (object == null) {
-            //处理一下null,将null包装起来
+            // 处理一下null,将null包装起来
             return SystemMetaObject.NULL_META_OBJECT;
         } else {
             return new MetaObject(object, objectFactory, objectWrapperFactory);
@@ -70,28 +69,28 @@ public class MetaObject {
         return originalObject;
     }
 
-    //--------以下方法都是委派给ObjectWrapper------
-    //查找属性
+    /* --------以下方法都是委派给 ObjectWrapper------ */
+    // 查找属性
     public String findProperty(String propName, boolean useCamelCaseMapping) {
         return objectWrapper.findProperty(propName, useCamelCaseMapping);
     }
 
-    //取得getter的名字列表
+    // 取得getter的名字列表
     public String[] getGetterNames() {
         return objectWrapper.getGetterNames();
     }
 
-    //取得setter的名字列表
+    // 取得setter的名字列表
     public String[] getSetterNames() {
         return objectWrapper.getSetterNames();
     }
 
-    //取得setter的类型列表
+    // 取得setter的类型列表
     public Class<?> getSetterType(String name) {
         return objectWrapper.getSetterType(name);
     }
 
-    //取得getter的类型列表
+    // 取得getter的类型列表
     public Class<?> getGetterType(String name) {
         return objectWrapper.getGetterType(name);
     }
@@ -101,14 +100,13 @@ public class MetaObject {
         return objectWrapper.hasSetter(name);
     }
 
-    //是否有指定的getter
+    // 是否有指定的getter
     public boolean hasGetter(String name) {
         return objectWrapper.hasGetter(name);
     }
 
-    //取得值
-    //如person[0].birthdate.year
-    //具体测试用例可以看MetaObjectTest
+    // 取得值
+    // 如 班级[0].学生.成绩
     public Object getValue(String name) {
         PropertyTokenizer prop = new PropertyTokenizer(name);
         if (prop.hasNext()) {
@@ -125,8 +123,8 @@ public class MetaObject {
         }
     }
 
-    //设置值
-    //如person[0].birthdate.year
+    // 设置值
+    // 如 班级[0].学生.成绩
     public void setValue(String name, Object value) {
         PropertyTokenizer prop = new PropertyTokenizer(name);
         if (prop.hasNext()) {
@@ -134,24 +132,24 @@ public class MetaObject {
             if (metaValue == SystemMetaObject.NULL_META_OBJECT) {
                 if (value == null && prop.getChildren() != null) {
                     // don't instantiate child path if value is null
-                    //如果上层就是null了，还得看有没有儿子，没有那就结束
+                    // 如果上层就是 null 了，还得看有没有儿子，没有那就结束
                     return;
                 } else {
-                    //否则还得new一个，委派给ObjectWrapper.instantiatePropertyValue
+                    // 否则还得 new 一个，委派给 ObjectWrapper.instantiatePropertyValue
                     metaValue = objectWrapper.instantiatePropertyValue(name, prop, objectFactory);
                 }
             }
-            //递归调用setValue
+            // 递归调用setValue
             metaValue.setValue(prop.getChildren(), value);
         } else {
-            //到了最后一层了，所以委派给ObjectWrapper.set
+            // 到了最后一层了，所以委派给 ObjectWrapper.set
             objectWrapper.set(prop, value);
         }
     }
 
-    //为某个属性生成元对象
+    // 为属性生成元对象
     public MetaObject metaObjectForProperty(String name) {
-        //实际是递归调用
+        // 实际是递归调用
         Object value = getValue(name);
         return MetaObject.forObject(value, objectFactory, objectWrapperFactory);
     }
@@ -160,17 +158,17 @@ public class MetaObject {
         return objectWrapper;
     }
 
-    //是否是集合
+    // 是否是集合
     public boolean isCollection() {
         return objectWrapper.isCollection();
     }
 
-    //添加属性
+    // 添加属性
     public void add(Object element) {
         objectWrapper.add(element);
     }
 
-    //添加属性
+    // 添加属性
     public <E> void addAll(List<E> list) {
         objectWrapper.addAll(list);
     }

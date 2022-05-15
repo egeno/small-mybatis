@@ -121,8 +121,7 @@ public class MetaClass {
                 Field field = (Field) _field.get(invoker);
                 return field.getGenericType();
             }
-        } catch (NoSuchFieldException e) {
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchFieldException | IllegalAccessException ignored) {
         }
         return null;
     }

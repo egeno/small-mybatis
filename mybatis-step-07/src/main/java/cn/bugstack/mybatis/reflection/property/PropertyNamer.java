@@ -1,6 +1,5 @@
 package cn.bugstack.mybatis.reflection.property;
 
-import javax.management.relation.RelationException;
 import java.util.Locale;
 
 /**

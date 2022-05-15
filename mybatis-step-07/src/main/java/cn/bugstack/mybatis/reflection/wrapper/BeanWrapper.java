@@ -167,7 +167,7 @@ public class BeanWrapper extends BaseWrapper {
 
     private Object getBeanProperty(PropertyTokenizer prop, Object object) {
         try {
-            //得到getter方法，然后调用
+            // 得到getter方法，然后调用
             Invoker method = metaClass.getGetInvoker(prop.getName());
             return method.invoke(object, NO_ARGUMENTS);
         } catch (RuntimeException e) {
@@ -179,7 +179,7 @@ public class BeanWrapper extends BaseWrapper {
 
     private void setBeanProperty(PropertyTokenizer prop, Object object, Object value) {
         try {
-            //得到setter方法，然后调用
+            // 得到setter方法，然后调用
             Invoker method = metaClass.getSetInvoker(prop.getName());
             Object[] params = {value};
             method.invoke(object, params);
