@@ -16,6 +16,7 @@
 - [【难度★★★★☆】第06章：数据源池化技术实现](https://bugstack.cn/md/spring/develop-mybatis/2022-04-23-%E7%AC%AC6%E7%AB%A0%EF%BC%9A%E6%95%B0%E6%8D%AE%E6%BA%90%E6%B1%A0%E5%8C%96%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0.html)
 - [【难度★★★☆☆】第07章：SQL执行器的定义和实现](https://bugstack.cn/md/spring/develop-mybatis/2022-04-28-%E7%AC%AC7%E7%AB%A0%EF%BC%9ASQL%E6%89%A7%E8%A1%8C%E5%99%A8%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%AE%9E%E7%8E%B0.html)
 - [【难度★★★★★】第08章：把反射用到出神入化](https://bugstack.cn/md/spring/develop-mybatis/2022-05-03-%E7%AC%AC8%E7%AB%A0%EF%BC%9A%E6%8A%8A%E5%8F%8D%E5%B0%84%E7%94%A8%E5%88%B0%E5%87%BA%E7%A5%9E%E5%85%A5%E5%8C%96.html)
+- [【难度★★★★☆】第09章：细化XML语句构建器，完善静态SQL解析](https://bugstack.cn/md/spring/develop-mybatis/2022-05-18-%E7%AC%AC9%E7%AB%A0%EF%BC%9A%E7%BB%86%E5%8C%96XML%E8%AF%AD%E5%8F%A5%E6%9E%84%E5%BB%BA%E5%99%A8%EF%BC%8C%E5%AE%8C%E5%96%84%E9%9D%99%E6%80%81SQL%E8%A7%A3%E6%9E%90.html)
 
 ## 1. 为甚，撸Mybatis
 
