@@ -6,7 +6,12 @@
 
 在手写的过程中学习 Mybatis 从解析、绑定、反射、缓存，到回话和事务操作，以及如何与 Spring 进行关联注册 Bean 对象，完成整合部分功能逻辑。通过这些内容的拆解实现，读者伙伴就可以非常清楚的知道这些核心功能都是如何实现的了，以后再阅读 Mybatis 源码也就知道从哪开始到哪结束了。
 
+## 视频
+
  [![](https://gitcode.net/KnowledgePlanet/TearSourceCode/small-mybatis/-/raw/master/docs/_media/video.png)](https://www.bilibili.com/video/BV1nY4y1B7eT)
+ 
+- 地址：[https://www.bilibili.com/video/BV1nY4y1B7eT](https://www.bilibili.com/video/BV1nY4y1B7eT)
+- 介绍：源码的学习，更多的是学习优秀的架构设计经验、系统解耦模式、抽象分治经验，而这些都需要亲自动手编码才能完整的吸收。所以大家跟着小傅哥，一起渐进式的逐步完善开发这个《手写 Mybatis》内容
 
 ## 目录
 
