@@ -15,6 +15,8 @@
 
 ## 目录
 
+**[《手写Mybatis：渐进式源码实践》](https://www.bilibili.com/video/BV1nY4y1B7eT)**
+
 - [【难度☆☆☆☆☆】第01章：开篇介绍，我要带你撸 Mybatis 啦！](https://bugstack.cn/md/spring/develop-mybatis/2022-03-20-%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%EF%BC%8C%E6%89%8B%E5%86%99Mybatis%E8%83%BD%E7%BB%99%E4%BD%A0%E5%B8%A6%E6%9D%A5%E4%BB%80%E4%B9%88%EF%BC%9F.html)
 - [【难度★★☆☆☆】第02章：创建简单的映射器代理工厂](https://bugstack.cn/md/spring/develop-mybatis/2022-03-27-%E7%AC%AC2%E7%AB%A0%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%AE%80%E5%8D%95%E7%9A%84%E6%98%A0%E5%B0%84%E5%99%A8%E4%BB%A3%E7%90%86%E5%B7%A5%E5%8E%82.html)
 - [【难度★★☆☆☆】第03章：实现映射器的注册和使用](https://bugstack.cn/md/spring/develop-mybatis/2022-04-04-%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E5%AE%9E%E7%8E%B0%E6%98%A0%E5%B0%84%E5%99%A8%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E4%BD%BF%E7%94%A8.html)
