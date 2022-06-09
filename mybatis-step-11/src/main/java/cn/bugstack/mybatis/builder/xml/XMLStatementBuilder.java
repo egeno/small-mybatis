@@ -65,7 +65,7 @@ public class XMLStatementBuilder extends BaseBuilder {
         // 解析成SqlSource，DynamicSqlSource/RawSqlSource
         SqlSource sqlSource = langDriver.createSqlSource(configuration, element, parameterTypeClass);
 
-        // 调用助手类
+        // 调用助手类【本节新添加，便于统一处理参数的包装】
         builderAssistant.addMappedStatement(id,
                 sqlSource,
                 sqlCommandType,

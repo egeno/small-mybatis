@@ -34,7 +34,6 @@ public class ResultMap {
 
         public ResultMap build() {
             resultMap.mappedColumns = new HashSet<>();
-
             return resultMap;
         }
 

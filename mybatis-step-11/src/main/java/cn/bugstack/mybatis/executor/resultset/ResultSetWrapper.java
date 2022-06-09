@@ -23,12 +23,12 @@ public class ResultSetWrapper {
 
     private final ResultSet resultSet;
     private final TypeHandlerRegistry typeHandlerRegistry;
-    private final List<String> columnNames = new ArrayList<String>();
-    private final List<String> classNames = new ArrayList<String>();
-    private final List<JdbcType> jdbcTypes = new ArrayList<JdbcType>();
-    private final Map<String, Map<Class<?>, TypeHandler<?>>> typeHandlerMap = new HashMap<String, Map<Class<?>, TypeHandler<?>>>();
-    private Map<String, List<String>> mappedColumnNamesMap = new HashMap<String, List<String>>();
-    private Map<String, List<String>> unMappedColumnNamesMap = new HashMap<String, List<String>>();
+    private final List<String> columnNames = new ArrayList<>();
+    private final List<String> classNames = new ArrayList<>();
+    private final List<JdbcType> jdbcTypes = new ArrayList<>();
+    private final Map<String, Map<Class<?>, TypeHandler<?>>> typeHandlerMap = new HashMap<>();
+    private Map<String, List<String>> mappedColumnNamesMap = new HashMap<>();
+    private Map<String, List<String>> unMappedColumnNamesMap = new HashMap<>();
 
     public ResultSetWrapper(ResultSet rs, Configuration configuration) throws SQLException {
         super();

@@ -1,7 +1,5 @@
 package cn.bugstack.mybatis.executor;
 
-import cn.bugstack.mybatis.datasource.pooled.PooledDataSource;
-import cn.bugstack.mybatis.executor.resultset.ResultSetHandler;
 import cn.bugstack.mybatis.mapping.BoundSql;
 import cn.bugstack.mybatis.mapping.MappedStatement;
 import cn.bugstack.mybatis.session.Configuration;
