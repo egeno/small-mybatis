@@ -28,6 +28,7 @@
 - [【难度★★★★☆】第09章：细化XML语句构建器，完善静态SQL解析](https://bugstack.cn/md/spring/develop-mybatis/2022-05-18-%E7%AC%AC9%E7%AB%A0%EF%BC%9A%E7%BB%86%E5%8C%96XML%E8%AF%AD%E5%8F%A5%E6%9E%84%E5%BB%BA%E5%99%A8%EF%BC%8C%E5%AE%8C%E5%96%84%E9%9D%99%E6%80%81SQL%E8%A7%A3%E6%9E%90.html)
 - [【难度★★★★☆】第10章：使用策略模式，调用参数处理器](https://bugstack.cn/md/spring/develop-mybatis/2022-05-26-%E7%AC%AC10%E7%AB%A0%EF%BC%9A%E4%BD%BF%E7%94%A8%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%EF%BC%8C%E8%B0%83%E7%94%A8%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86%E5%99%A8.html)
 - [【难度★★★☆☆】第11章：流程解耦，封装结果集处理器](https://bugstack.cn/md/spring/develop-mybatis/2022-06-02-%E7%AC%AC11%E7%AB%A0%EF%BC%9A%E6%B5%81%E7%A8%8B%E8%A7%A3%E8%80%A6%EF%BC%8C%E5%B0%81%E8%A3%85%E7%BB%93%E6%9E%9C%E9%9B%86%E5%A4%84%E7%90%86%E5%99%A8.html)
+- [【难度★★★☆☆】第12章：完善ORM框架，增删改查操作](https://bugstack.cn/md/spring/develop-mybatis/2022-06-10-%E7%AC%AC12%E7%AB%A0%EF%BC%9A%E5%AE%8C%E5%96%84ORM%E6%A1%86%E6%9E%B6%EF%BC%8C%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5%E6%93%8D%E4%BD%9C.html)
 
 ## 1. 为甚，撸Mybatis
 
