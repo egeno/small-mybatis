@@ -1,11 +1,13 @@
 package cn.bugstack.mybatis.test.dao;
 
 import cn.bugstack.mybatis.test.po.User;
+import org.apache.ibatis.annotations.Select;
 
 public interface IUserDao {
 
-//    User queryUserInfoById(Long uId);
-
+    @Select("SELECT id, userId, userName, userHead\n" +
+            "        FROM user\n" +
+            "        where id = #{id}")
     User queryUserInfo(User req);
 
 }

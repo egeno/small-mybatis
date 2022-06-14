@@ -47,6 +47,23 @@ public class ApiTest {
     }
 
     @Test
+    public void test_SqlSessionFactory_Annotation() throws IOException {
+        // 1. 从SqlSessionFactory中获取SqlSession
+        Reader reader = Resources.getResourceAsReader("mybatis-config-datasource-annotation.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+
+        // 2. 开启 Session
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        // 3. 获取映射器对象
+        IUserDao userDao = sqlSession.getMapper(IUserDao.class);
+
+        // 4. 测试验证
+        User user = userDao.queryUserInfo(new User(1L));
+        logger.info("测试结果：{}", JSON.toJSONString(user));
+    }
+
+    @Test
     public void test_jdbc() throws Exception {
         // 1.加载驱动
         Class.forName("com.mysql.jdbc.Driver");
