@@ -17,6 +17,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  * @author 小傅哥，微信：fustack
@@ -59,8 +60,8 @@ public class ApiTest {
         IUserDao userDao = sqlSession.getMapper(IUserDao.class);
 
         // 4. 测试验证
-        User user = userDao.queryUserInfo(new User(1L));
-        logger.info("测试结果：{}", JSON.toJSONString(user));
+        List<User> users = userDao.queryUserInfoList();
+        logger.info("测试结果：{}", JSON.toJSONString(users));
     }
 
     @Test
