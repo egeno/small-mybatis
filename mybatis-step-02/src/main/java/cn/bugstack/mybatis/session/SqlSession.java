@@ -4,6 +4,7 @@ package cn.bugstack.mybatis.session;
  * @author 小傅哥，微信：fustack
  * @description SqlSession 用来执行SQL，获取映射器，管理事务。
  * PS：通常情况下，我们在应用程序中使用的Mybatis的API就是这个接口定义的方法。
+ * 一个mapper interface对应一个SqlSession
  * @date 2022/04/01
  * @github https://github.com/fuzhengwei
  * @copyright 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！
@@ -15,7 +16,7 @@ public interface SqlSession {
      * 根据指定的SqlID获取一条记录的封装对象
      *
      * @param <T>       the returned object type 封装之后的对象类型
-     * @param statement sqlID
+     * @param statement sqlID 对应mybatis就是mapper接口的方法名（xml文件中的id）
      * @return Mapped object 封装之后的对象
      */
     <T> T selectOne(String statement);

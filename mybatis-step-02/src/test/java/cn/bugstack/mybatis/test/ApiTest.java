@@ -1,13 +1,17 @@
 package cn.bugstack.mybatis.test;
 
+import cn.bugstack.mybatis.binding.MapperProxyFactory;
 import cn.bugstack.mybatis.binding.MapperRegistry;
 import cn.bugstack.mybatis.session.SqlSession;
 import cn.bugstack.mybatis.session.SqlSessionFactory;
 import cn.bugstack.mybatis.session.defaults.DefaultSqlSessionFactory;
+import cn.bugstack.mybatis.test.dao.ISchoolDao;
 import cn.bugstack.mybatis.test.dao.IUserDao;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Map;
 
 /**
  * @author 小傅哥，微信：fustack
@@ -37,5 +41,4 @@ public class ApiTest {
         String res = userDao.queryUserName("10001");
         logger.info("测试结果：{}", res);
     }
-
 }

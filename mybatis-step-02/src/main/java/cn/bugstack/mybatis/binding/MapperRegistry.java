@@ -6,6 +6,7 @@ import cn.hutool.core.lang.ClassScanner;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.locks.Lock;
 
 /**
  * @author 小傅哥，微信：fustack
@@ -16,11 +17,27 @@ import java.util.Set;
  */
 public class MapperRegistry {
 
+
+
     /**
      * 将已添加的映射器代理加入到 HashMap
+     * 注意，这里value并不是MapperProxy（因为MapperProxy只是个InvocationHandler，并不是直接生产的代理类），所以需要通过MapperProxyFactory来生成代理类
      */
-    private final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
+    private  final Map<Class<?>, MapperProxyFactory<?>> knownMappers = new HashMap<>();
 
+    public Map<Class<?>,MapperProxyFactory<?>> getKnownMappers(){
+        return knownMappers;
+    }
+
+
+    /**
+     * 这里入参要传sqlSession，是因为如果缓存中存的只是ProxyFactory，创建代理类需要用到sqlSession
+     * 而创建新的代理类，需要sqlSession
+     * @param type
+     * @param sqlSession
+     * @param <T>
+     * @return
+     */
     public <T> T getMapper(Class<T> type, SqlSession sqlSession) {
         final MapperProxyFactory<T> mapperProxyFactory = (MapperProxyFactory<T>) knownMappers.get(type);
         if (mapperProxyFactory == null) {
@@ -50,6 +67,7 @@ public class MapperRegistry {
     }
 
     public void addMappers(String packageName) {
+        //hutool的工具包
         Set<Class<?>> mapperSet = ClassScanner.scanPackage(packageName);
         for (Class<?> mapperClass : mapperSet) {
             addMapper(mapperClass);
