@@ -6,6 +6,9 @@ import cn.bugstack.mybatis.session.defaults.DefaultSqlSessionFactory;
 import java.io.Reader;
 
 /**
+ *
+ * 作为整个mybatis的入口
+ *
  * @author 小傅哥，微信：fustack
  * @description 构建SqlSessionFactory的工厂
  * @date 2022/04/06

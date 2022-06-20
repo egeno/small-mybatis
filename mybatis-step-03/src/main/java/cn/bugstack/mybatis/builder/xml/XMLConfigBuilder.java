@@ -88,6 +88,7 @@ public class XMLConfigBuilder extends BaseBuilder {
                     sql = sql.replace(g1, "?");
                 }
 
+                //这里的id并不单单是方法名，而是包名+接口名+方法名，确保不会重复
                 String msId = namespace + "." + id;
                 String nodeName = node.getName();
                 SqlCommandType sqlCommandType = SqlCommandType.valueOf(nodeName.toUpperCase(Locale.ENGLISH));
@@ -97,6 +98,7 @@ public class XMLConfigBuilder extends BaseBuilder {
             }
 
             // 注册Mapper映射器
+            // 这里是解析完，调用configuration去注册mapper
             configuration.addMapper(Resources.classForName(namespace));
         }
     }

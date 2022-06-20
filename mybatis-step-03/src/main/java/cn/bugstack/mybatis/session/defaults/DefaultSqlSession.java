@@ -5,6 +5,8 @@ import cn.bugstack.mybatis.session.Configuration;
 import cn.bugstack.mybatis.session.SqlSession;
 
 /**
+ * 这里并不直接去依赖MapperRegistry，而是依赖通过依赖Configuration间接去依赖MapperRegistry
+ *
  * @author 小傅哥，微信：fustack
  * @description 默认SqlSession实现类
  * @date 2022/04/01

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
+ * 这里是所有的mapper接口（xml文件）对应一个configuration
  * @author 小傅哥，微信：fustack
  * @description 配置项
  * @date 2022/04/06
@@ -22,6 +24,7 @@ public class Configuration {
 
     /**
      * 映射的语句，存在Map里
+     * key :接口方法的全路径名称（含包名）
      */
     protected final Map<String, MappedStatement> mappedStatements = new HashMap<>();
 
