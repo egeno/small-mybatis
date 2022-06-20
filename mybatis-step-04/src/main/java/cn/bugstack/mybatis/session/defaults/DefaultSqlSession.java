@@ -33,12 +33,15 @@ public class DefaultSqlSession implements SqlSession {
         return (T) ("你被代理了！" + statement);
     }
 
+
     @Override
     public <T> T selectOne(String statement, Object parameter) {
         try {
             MappedStatement mappedStatement = configuration.getMappedStatement(statement);
             Environment environment = configuration.getEnvironment();
 
+
+            //底层还是使用jdbc
             Connection connection = environment.getDataSource().getConnection();
 
             BoundSql boundSql = mappedStatement.getBoundSql();
