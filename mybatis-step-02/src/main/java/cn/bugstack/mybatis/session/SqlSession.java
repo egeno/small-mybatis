@@ -14,7 +14,7 @@ public interface SqlSession {
     /**
      * Retrieve a single row mapped from the statement key
      * 根据指定的SqlID获取一条记录的封装对象
-     *
+     * <T> 返回值T前面的<T>表示这是一个泛型方法
      * @param <T>       the returned object type 封装之后的对象类型
      * @param statement sqlID 对应mybatis就是mapper接口的方法名（xml文件中的id）
      * @return Mapped object 封装之后的对象
@@ -42,5 +42,6 @@ public interface SqlSession {
      * @return a mapper bound to this SqlSession
      */
     <T> T getMapper(Class<T> type);
+
 
 }
