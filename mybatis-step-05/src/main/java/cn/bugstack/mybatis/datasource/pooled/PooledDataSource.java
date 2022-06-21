@@ -24,6 +24,7 @@ public class PooledDataSource implements DataSource {
     // 池状态
     private final PoolState state = new PoolState(this);
 
+    //这里是直接引入了非池化的数据源实现
     private final UnpooledDataSource dataSource;
 
     // 活跃连接数
@@ -47,6 +48,8 @@ public class PooledDataSource implements DataSource {
         this.dataSource = new UnpooledDataSource();
     }
 
+    //回收链接（该链接是在connection.close()时动态代理调用的）
+    //回收链接的一个思想就是，连接池里的可用空闲链接还够不够，够的话就直接close掉这个链接，不够了的话就加入连接池的空闲链接列表
     protected void pushConnection(PooledConnection connection) throws SQLException {
         synchronized (state) {
             state.activeConnections.remove(connection);
@@ -67,9 +70,10 @@ public class PooledDataSource implements DataSource {
                     logger.info("Returned connection " + newConnection.getRealHashCode() + " to pool.");
 
                     // 通知其他线程可以来抢DB连接了
+                    // 这里也是一个等待唤醒机制
                     state.notifyAll();
                 }
-                // 否则，空闲链接还比较充足
+                // 否则，空闲链接还比较充足,就直接close链接了
                 else {
                     state.accumulatedCheckoutTime += connection.getCheckoutTime();
                     if (!connection.getRealConnection().getAutoCommit()) {
@@ -87,6 +91,7 @@ public class PooledDataSource implements DataSource {
         }
     }
 
+    //获取链接，对应的就是把链接从池中取出
     private PooledConnection popConnection(String username, String password) throws SQLException {
         boolean countedWait = false;
         PooledConnection conn = null;
@@ -111,13 +116,16 @@ public class PooledDataSource implements DataSource {
                     else {
                         // 取得活跃链接列表的第一个，也就是最老的一个连接
                         PooledConnection oldestActiveConnection = state.activeConnections.get(0);
+                        //最长存活时间
                         long longestCheckoutTime = oldestActiveConnection.getCheckoutTime();
                         // 如果checkout时间过长，则这个链接标记为过期
                         if (longestCheckoutTime > poolMaximumCheckoutTime) {
                             state.claimedOverdueConnectionCount++;
                             state.accumulatedCheckoutTimeOfOverdueConnections += longestCheckoutTime;
                             state.accumulatedCheckoutTime += longestCheckoutTime;
+                            //从活跃链接列表中移除该超时链接
                             state.activeConnections.remove(oldestActiveConnection);
+                            //事务没有提交，手动回滚
                             if (!oldestActiveConnection.getRealConnection().getAutoCommit()) {
                                 oldestActiveConnection.getRealConnection().rollback();
                             }

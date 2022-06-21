@@ -1,5 +1,7 @@
 package cn.bugstack.mybatis.datasource;
 
+import com.alibaba.druid.pool.DruidDataSource;
+
 import javax.sql.DataSource;
 import java.util.Properties;
 
@@ -13,6 +15,7 @@ import java.util.Properties;
 public interface DataSourceFactory {
 
     void setProperties(Properties props);
+
 
     DataSource getDataSource();
 

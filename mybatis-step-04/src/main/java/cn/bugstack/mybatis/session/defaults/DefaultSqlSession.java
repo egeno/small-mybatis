@@ -42,7 +42,7 @@ public class DefaultSqlSession implements SqlSession {
 
 
             //底层还是使用jdbc
-            //只不过这里是根据datasource去获取connection，不像driverManager.getConnection(),所以这个connection用完后无需去close
+            //只不过这里是根据datasource去获取connection，不像driverManager.getConnection(),所以这个connection用完后无需去close(因为是从数据源连接池中取的)
             Connection connection = environment.getDataSource().getConnection();
 
             BoundSql boundSql = mappedStatement.getBoundSql();
