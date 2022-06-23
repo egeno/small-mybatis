@@ -41,7 +41,7 @@ public class ApiTest {
         IActivityDao dao = sqlSession.getMapper(IActivityDao.class);
 
         // 4. 测试验证
-        Activity res = dao.queryActivityById(1L);
+        Activity res = dao.queryActivityById(100001L);
         logger.info("测试结果：{}", JSON.toJSONString(res));
     }
 
