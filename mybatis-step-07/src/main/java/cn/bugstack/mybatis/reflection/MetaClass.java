@@ -20,6 +20,7 @@ import java.util.Collection;
  */
 public class MetaClass {
 
+    //真正反射调用的最底层还是reflector
     private Reflector reflector;
 
     private MetaClass(Class<?> type) {

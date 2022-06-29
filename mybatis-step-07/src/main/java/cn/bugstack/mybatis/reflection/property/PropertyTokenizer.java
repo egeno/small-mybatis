@@ -21,6 +21,8 @@ public class PropertyTokenizer implements Iterable<PropertyTokenizer>, Iterator<
     // 学生.成绩
     private String children;
 
+
+    //这块具体debug看
     public PropertyTokenizer(String fullname) {
         // 班级[0].学生.成绩
         // 找这个点 .

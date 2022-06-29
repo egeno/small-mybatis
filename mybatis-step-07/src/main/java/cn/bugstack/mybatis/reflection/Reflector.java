@@ -65,17 +65,23 @@ public class Reflector {
     }
 
     private void addDefaultConstructor(Class<?> clazz) {
+        //返回所有的构造器，无论是public的还是private的
         Constructor<?>[] consts = clazz.getDeclaredConstructors();
         for (Constructor<?> constructor : consts) {
+            //如果是无参构造
             if (constructor.getParameterTypes().length == 0) {
                 if (canAccessPrivateMethods()) {
                     try {
+                        //设置能够通过反射去访问私有构造方法
+                        //默认是false
                         constructor.setAccessible(true);
                     } catch (Exception ignore) {
                         // Ignored. This is only a final precaution, nothing we can do
                     }
                 }
             }
+
+            //循环最后的结果就是 defaultConstructor = 无参构造,因为默认isAccessible就是false
             if (constructor.isAccessible()) {
                 this.defaultConstructor = constructor;
             }
@@ -433,6 +439,7 @@ public class Reflector {
     public static Reflector forClass(Class<?> clazz) {
         if (classCacheEnabled) {
             // synchronized (clazz) removed see issue #461
+            // 因为这里已经用了并发安全的容器，所以这里便没有再加锁了
             // 对于每个类来说，我们假设它是不会变的，这样可以考虑将这个类的信息(构造函数，getter,setter,字段)加入缓存，以提高速度
             Reflector cached = REFLECTOR_MAP.get(clazz);
             if (cached == null) {

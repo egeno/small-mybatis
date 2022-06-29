@@ -29,8 +29,10 @@ public class ReflectionTest {
         teacher.setName("小傅哥");
         teacher.setStudents(list);
 
-        MetaObject metaObject = SystemMetaObject.forObject(teacher);
+        TestReflect testReflect = new TestReflect();
 
+//        MetaObject metaObject1 = SystemMetaObject.forObject(testReflect);
+        MetaObject metaObject = SystemMetaObject.forObject(teacher);
         logger.info("getGetterNames：{}", JSON.toJSONString(metaObject.getGetterNames()));
         logger.info("getSetterNames：{}", JSON.toJSONString(metaObject.getSetterNames()));
         logger.info("name的get方法返回值：{}", JSON.toJSONString(metaObject.getGetterType("name")));
@@ -56,6 +58,12 @@ public class ReflectionTest {
         private List<Student> students;
 
         private Student student;
+
+        public Teacher(){}
+
+        public Teacher(String name){
+            this.name = name;
+        }
 
         public static class Student {
 

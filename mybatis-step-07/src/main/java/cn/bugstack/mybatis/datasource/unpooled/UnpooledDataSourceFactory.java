@@ -24,7 +24,10 @@ public class UnpooledDataSourceFactory implements DataSourceFactory {
 
     @Override
     public void setProperties(Properties props) {
+        //获取datasource的元对象
         MetaObject metaObject = SystemMetaObject.forObject(dataSource);
+
+        //这里遍历的是配置文件，拿着配置文件的属性去set进对象里
         for (Object key : props.keySet()) {
             String propertyName = (String) key;
             if (metaObject.hasSetter(propertyName)) {
