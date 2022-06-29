@@ -10,7 +10,10 @@ import java.util.Map;
 
 /**
  * @author 小傅哥，微信：fustack
- * @description 元对象
+ * @description 元对象 直接使用对象 最底层是依赖reflector，而reflector是直接使用反射的api
+ *
+ * 其实就是对反射操作的各种封装
+ *
  * @date 2022/5/2
  * @github https://github.com/fuzhengwei/CodeDesignTutorials
  * @Copyright 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！

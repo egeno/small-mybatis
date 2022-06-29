@@ -29,9 +29,6 @@ public class ReflectionTest {
         teacher.setName("小傅哥");
         teacher.setStudents(list);
 
-        TestReflect testReflect = new TestReflect();
-
-//        MetaObject metaObject1 = SystemMetaObject.forObject(testReflect);
         MetaObject metaObject = SystemMetaObject.forObject(teacher);
         logger.info("getGetterNames：{}", JSON.toJSONString(metaObject.getGetterNames()));
         logger.info("getSetterNames：{}", JSON.toJSONString(metaObject.getSetterNames()));
@@ -43,6 +40,8 @@ public class ReflectionTest {
         // 重新设置属性值
         metaObject.setValue("name", "小白");
         logger.info("设置name的属性值：{}", metaObject.getValue("name"));
+        metaObject.setValue("age",10);
+        logger.info("设置age的属性值：{}", metaObject.getValue("age"));
         // 设置属性（集合）的元素值
         metaObject.setValue("students[0].id", "001");
         logger.info("获取students集合的第一个元素的属性值：{}", JSON.toJSONString(metaObject.getValue("students[0].id")));
@@ -54,6 +53,8 @@ public class ReflectionTest {
         private String name;
 
         private double price;
+
+        private int age;
 
         private List<Student> students;
 

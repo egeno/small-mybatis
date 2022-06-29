@@ -42,6 +42,7 @@ public class Reflector {
     // 构造函数
     private Constructor<?> defaultConstructor;
 
+    //不区分大小写的属性映射
     private Map<String, String> caseInsensitivePropertyMap = new HashMap<>();
 
     public Reflector(Class<?> clazz) {
@@ -175,6 +176,7 @@ public class Reflector {
                 }
             }
             if (field.isAccessible()) {
+                //该字段没有set方法
                 if (!setMethods.containsKey(field.getName())) {
                     // issue #379 - removed the check for final because JDK 1.5 allows
                     // modification of final fields through reflection (JSR-133). (JGB)
@@ -184,6 +186,7 @@ public class Reflector {
                         addSetField(field);
                     }
                 }
+                //该字段没有get方法
                 if (!getMethods.containsKey(field.getName())) {
                     addGetField(field);
                 }
