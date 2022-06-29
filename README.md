@@ -45,8 +45,8 @@
 
     - [【难度★★★☆☆】第13章：通过注解配置执行SQL语句](https://articles.zsxq.com/id_cushlx5xx5wj.html)
     - [【难度★★★☆☆】第14章：解析和使用ResultMap映射参数配置](https://articles.zsxq.com/id_lszxhhridkrl.html)
-    - [ ] 第15章：返回Insert操作自增索引值
-    - [ ] 第16章：动态SQL解析
+    - [x] 第15章：返回Insert操作自增索引值
+    - [x] 第16章：解析含标签的动态SQL语句
     - [ ] 第17章：Plugin 插件扩展
     - [ ] 第18章：缓存数据
     
