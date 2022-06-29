@@ -15,11 +15,11 @@ public class Human {
         this.age = age;
     }
 
-    public void setName(String name){
-        this.name = name;
+    public String getName(String name){
+        return name;
     }
 
-    private void setAge(int age){
-        this.age = age;
+    private int getAge(int age){
+        return age;
     }
 }
