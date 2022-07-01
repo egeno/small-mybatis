@@ -22,6 +22,8 @@ public class XMLMapperBuilder extends BaseBuilder {
 
     private Element element;
     private String resource;
+
+    //一个namespace对应一个dao接口，也对应一个xml文件
     private String currentNamespace;
 
     public XMLMapperBuilder(InputStream inputStream, Configuration configuration, String resource) throws DocumentException {
