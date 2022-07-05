@@ -52,6 +52,7 @@ public class DefaultParameterHandler implements ParameterHandler {
     public void setParameters(PreparedStatement ps) throws SQLException {
         List<ParameterMapping> parameterMappings = boundSql.getParameterMappings();
         if (null != parameterMappings) {
+            //遍历参数
             for (int i = 0; i < parameterMappings.size(); i++) {
                 ParameterMapping parameterMapping = parameterMappings.get(i);
                 String propertyName = parameterMapping.getProperty();
@@ -67,6 +68,7 @@ public class DefaultParameterHandler implements ParameterHandler {
 
                 // 设置参数
                 logger.info("根据每个ParameterMapping中的TypeHandler设置对应的参数信息 value：{}", JSON.toJSONString(value));
+                //不同策略的TypeHandler是放在parameterMapping中的，所以这里需要注意，什么时候把typeHandler构造到parameterMapping中
                 TypeHandler typeHandler = parameterMapping.getTypeHandler();
                 typeHandler.setParameter(ps, i + 1, value, jdbcType);
             }
