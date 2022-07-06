@@ -39,9 +39,9 @@ public class ApiTest {
 
         logger.info("测试结果：{}", JSON.toJSONString(dao.queryActivityById(req)));
 
-        // sqlSession.commit();
+//         sqlSession.commit();
         // sqlSession.clearCache();
-         sqlSession.close();
+//         sqlSession.close();
 
         logger.info("测试结果：{}", JSON.toJSONString(dao.queryActivityById(req)));
     }
