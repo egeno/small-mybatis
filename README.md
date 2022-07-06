@@ -48,7 +48,9 @@
     - [【难度★★★☆☆】第15章：返回Insert操作自增索引值](https://articles.zsxq.com/id_gwfa0x8nciwn.html)
     - [x] 第16章：解析含标签的动态SQL语句
     - [x] 第17章：Plugin 插件扩展
-    - [ ] 第18章：缓存数据
+    - [x] 第18章：一级缓存
+    - [x] 第19章：二级缓存
+    - [x] 第20章：整合Spring
     
 ## 1. 为甚，撸Mybatis
 
