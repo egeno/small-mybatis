@@ -50,6 +50,8 @@ public class DefaultResultSetHandler implements ResultSetHandler {
                     } else {
                         method = clazz.getMethod(setMethod, value.getClass());
                     }
+
+                    //利用反射调用set方法来将数据库原始字段的值映射到我们需要的resultObj上
                     method.invoke(obj, value);
                 }
                 list.add(obj);
