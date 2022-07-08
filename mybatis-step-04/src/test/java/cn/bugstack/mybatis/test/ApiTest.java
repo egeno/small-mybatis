@@ -1,9 +1,12 @@
 package cn.bugstack.mybatis.test;
 
+import cn.bugstack.mybatis.builder.xml.XMLConfigBuilder;
 import cn.bugstack.mybatis.io.Resources;
+import cn.bugstack.mybatis.session.Configuration;
 import cn.bugstack.mybatis.session.SqlSession;
 import cn.bugstack.mybatis.session.SqlSessionFactory;
 import cn.bugstack.mybatis.session.SqlSessionFactoryBuilder;
+import cn.bugstack.mybatis.session.defaults.DefaultSqlSession;
 import cn.bugstack.mybatis.test.dao.IUserDao;
 import cn.bugstack.mybatis.test.po.User;
 import com.alibaba.fastjson.JSON;
@@ -43,6 +46,22 @@ public class ApiTest {
         // 3. 测试验证
         User user = userDao.queryUserInfoById(1L);
         logger.info("测试结果：{}", JSON.toJSONString(user));
+    }
+
+    @Test
+    public void test_selectOne() throws IOException {
+        // 解析 XML
+        Reader reader = Resources.getResourceAsReader("mybatis-config-datasource.xml");
+        XMLConfigBuilder xmlConfigBuilder = new XMLConfigBuilder(reader);
+        Configuration configuration = xmlConfigBuilder.parse();
+
+        // 获取 DefaultSqlSession
+        SqlSession sqlSession = new DefaultSqlSession(configuration);
+
+        // 执行查询：默认是一个集合参数
+        Object[] req = {1L};
+        Object res = sqlSession.selectOne("cn.bugstack.mybatis.test.dao.IUserDao.queryUserInfoById", req);
+        logger.info("测试结果：{}", JSON.toJSONString(res));
     }
 
 }

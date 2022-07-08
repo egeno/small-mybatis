@@ -43,12 +43,14 @@
 
 - 第 4 部分 -  扩展功能
 
-    - [【难度★★★☆☆】第13章：通过注解配置执行SQL语句](#)
-    - [ ] 第14章：ResultMap 参数
-    - [ ] 第15章：Insert 返回自增索引
-    - [ ] 第16章：动态SQL解析
-    - [ ] 第17章：Plugin 插件扩展
-    - [ ] 第18章：缓存数据
+    - [【难度★★★☆☆】第13章：通过注解配置执行SQL语句](https://articles.zsxq.com/id_cushlx5xx5wj.html)
+    - [【难度★★★☆☆】第14章：解析和使用ResultMap映射参数配置](https://articles.zsxq.com/id_lszxhhridkrl.html)
+    - [【难度★★★☆☆】第15章：返回Insert操作自增索引值](https://articles.zsxq.com/id_gwfa0x8nciwn.html)
+    - [x] 第16章：解析含标签的动态SQL语句
+    - [x] 第17章：Plugin 插件扩展
+    - [x] 第18章：一级缓存
+    - [x] 第19章：二级缓存
+    - [x] 第20章：整合Spring
     
 ## 1. 为甚，撸Mybatis
 
