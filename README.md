@@ -1,5 +1,7 @@
 # 《手写Mybatis：渐进式源码实践》—— 一次源码深度旅行！
 
+![](https://bugstack.cn/images/article/spring/mybatis-220708-00.png)
+
 ![](https://bugstack.cn/images/article/spring/mybatis-220320-02.png)
 
 像我们之前完成[手写 Spring](https://mp.weixin.qq.com/s/g7YdIe_FSrk-WE8nQRO3TA)一样，拆解功能、简化流程、渐进实现，让读者能够更容易的学习到最有价值的知识。
