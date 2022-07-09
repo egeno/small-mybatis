@@ -1,4 +1,4 @@
-# 《手写Mybatis：渐进式源码实践》
+# 《手写Mybatis：渐进式源码实践》—— 一次源码深度旅行！
 
 ![](https://bugstack.cn/images/article/spring/mybatis-220320-02.png)
 
