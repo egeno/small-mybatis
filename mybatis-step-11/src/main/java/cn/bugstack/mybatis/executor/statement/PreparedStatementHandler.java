@@ -29,6 +29,7 @@ public class PreparedStatementHandler extends BaseStatementHandler{
     @Override
     protected Statement instantiateStatement(Connection connection) throws SQLException {
         String sql = boundSql.getSql();
+        //具体的sql是在这一步绑定的
         return connection.prepareStatement(sql);
     }
 

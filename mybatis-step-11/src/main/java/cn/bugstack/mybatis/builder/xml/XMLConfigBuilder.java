@@ -120,6 +120,8 @@ public class XMLConfigBuilder extends BaseBuilder {
         List<Element> mapperList = mappers.elements("mapper");
         for (Element e : mapperList) {
             String resource = e.attributeValue("resource");
+
+            //每个xml文件对应一个输入流
             InputStream inputStream = Resources.getResourceAsStream(resource);
 
             // 在for循环里每个mapper都重新new一个XMLMapperBuilder，来解析

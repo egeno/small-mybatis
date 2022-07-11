@@ -8,6 +8,9 @@ import cn.bugstack.mybatis.type.TypeHandlerRegistry;
 /**
  * @author 小傅哥，微信：fustack
  * @description 参数映射 #{property,javaType=int,jdbcType=NUMERIC}
+ *
+ * 在sql中，一个入参对应一个parameterMapping
+ *
  * @date 2022/04/12
  * @github https://github.com/fuzhengwei
  * @copyright 公众号：bugstack虫洞栈 | 博客：https://bugstack.cn - 沉淀、分享、成长，让自己和他人都能有所收获！

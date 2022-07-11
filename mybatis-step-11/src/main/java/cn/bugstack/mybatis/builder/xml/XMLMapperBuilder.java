@@ -76,8 +76,10 @@ public class XMLMapperBuilder extends BaseBuilder {
     // 配置select|insert|update|delete
     @SafeVarargs
     private final void buildStatementFromContext(List<Element>... lists) {
+        //双重for循环去遍历解析每一条sql
         for (List<Element> list : lists) {
             for (Element element : list) {
+                //每条sql对应一个XMLStatementBuilder
                 final XMLStatementBuilder statementParser = new XMLStatementBuilder(configuration, builderAssistant, element);
                 statementParser.parseStatementNode();
             }
