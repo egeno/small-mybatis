@@ -133,6 +133,8 @@ public class XMLConfigBuilder extends BaseBuilder {
             // Annotation 注解解析
             else if (resource == null && mapperClass != null) {
                 Class<?> mapperInterface = Resources.classForName(mapperClass);
+
+                //注解的sql是在这个方法里解析的
                 configuration.addMapper(mapperInterface);
             }
 

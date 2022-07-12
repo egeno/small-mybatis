@@ -147,6 +147,8 @@ public class MapperAnnotationBuilder {
         try {
             Class<? extends Annotation> sqlAnnotationType = getSqlAnnotationType(method);
             if (sqlAnnotationType != null) {
+                //因为这里没法确定此时返回的注解到底是什么类型，所以这里统一用Annotation接收
+                //下面获取对应注解的值，也用反射去获取
                 Annotation sqlAnnotation = method.getAnnotation(sqlAnnotationType);
                 final String[] strings = (String[]) sqlAnnotation.getClass().getMethod("value").invoke(sqlAnnotation);
                 return buildSqlSourceFromStrings(strings, parameterType, languageDriver);
