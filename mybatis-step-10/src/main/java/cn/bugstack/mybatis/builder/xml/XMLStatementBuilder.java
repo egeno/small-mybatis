@@ -66,6 +66,7 @@ public class XMLStatementBuilder extends BaseBuilder {
         SqlSource sqlSource = langDriver.createSqlSource(configuration, element, parameterTypeClass);
 
         // 调用助手类【本节新添加，便于统一处理参数的包装】
+        //作用就是往configuration中添加mappedStatement
         builderAssistant.addMappedStatement(id,
                 sqlSource,
                 sqlCommandType,

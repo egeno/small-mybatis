@@ -117,6 +117,7 @@ public class Configuration {
 
     /**
      * 创建结果集处理器
+     * 一个接口（一条sql）对应一个resultHandler
      */
     public ResultSetHandler newResultSetHandler(Executor executor, MappedStatement mappedStatement, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) {
         return new DefaultResultSetHandler(executor, mappedStatement, resultHandler, rowBounds, boundSql);
