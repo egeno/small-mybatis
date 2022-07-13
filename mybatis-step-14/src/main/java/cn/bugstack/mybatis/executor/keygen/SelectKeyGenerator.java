@@ -49,6 +49,8 @@ public class SelectKeyGenerator implements KeyGenerator {
                 final MetaObject metaParam = configuration.newMetaObject(parameter);
                 if (keyProperties != null) {
                     Executor keyExecutor = configuration.newExecutor(executor.getTransaction());
+
+                    //查询主键相关信息
                     List<Object> values = keyExecutor.query(keyStatement, parameter, RowBounds.DEFAULT, Executor.NO_RESULT_HANDLER);
                     if (values.size() == 0) {
                         throw new RuntimeException("SelectKey returned no data.");
