@@ -139,6 +139,7 @@ public class XMLMapperBuilder extends BaseBuilder {
     private final void buildStatementFromContext(List<Element>... lists) {
         for (List<Element> list : lists) {
             for (Element element : list) {
+                //每一条sql对应一个XMLStatementBuilder
                 final XMLStatementBuilder statementParser = new XMLStatementBuilder(configuration, builderAssistant, element);
                 statementParser.parseStatementNode();
             }

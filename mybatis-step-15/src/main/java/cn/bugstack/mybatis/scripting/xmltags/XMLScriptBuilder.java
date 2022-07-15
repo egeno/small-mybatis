@@ -40,6 +40,7 @@ public class XMLScriptBuilder extends BaseBuilder {
     }
 
     public SqlSource parseScriptNode() {
+        //不管你是不是动态sql，先解析了再说
         List<SqlNode> contents = parseDynamicTags(element);
         MixedSqlNode rootSqlNode = new MixedSqlNode(contents);
         SqlSource sqlSource = null;

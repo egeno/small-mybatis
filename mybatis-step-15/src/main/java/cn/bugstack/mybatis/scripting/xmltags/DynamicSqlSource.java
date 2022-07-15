@@ -29,6 +29,7 @@ public class DynamicSqlSource implements SqlSource {
         // 生成一个 DynamicContext 动态上下文
         DynamicContext context = new DynamicContext(configuration, parameterObject);
         // SqlNode.apply 将 ${} 参数替换掉，不替换 #{} 这种参数
+        //就是在这一步去解析动态sql，拼接成条件判断之后的具体sql，构建staticSqlSource和BoundSql
         rootSqlNode.apply(context);
 
         // 调用 SqlSourceBuilder

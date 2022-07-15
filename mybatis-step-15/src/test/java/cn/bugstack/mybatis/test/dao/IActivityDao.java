@@ -6,4 +6,6 @@ public interface IActivityDao {
 
     Activity queryActivityById(Activity activity);
 
+    Integer insert(Activity activity);
+
 }
