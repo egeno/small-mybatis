@@ -1,4 +1,6 @@
-# Mybatis 手撸专栏
+# 《手写Mybatis：渐进式源码实践》—— 一次源码深度旅行！
+
+![](https://bugstack.cn/images/article/spring/mybatis-220708-00.png)
 
 ![](https://bugstack.cn/images/article/spring/mybatis-220320-02.png)
 
@@ -46,9 +48,9 @@
     - [【难度★★★☆☆】第13章：通过注解配置执行SQL语句](https://articles.zsxq.com/id_cushlx5xx5wj.html)
     - [【难度★★★☆☆】第14章：解析和使用ResultMap映射参数配置](https://articles.zsxq.com/id_lszxhhridkrl.html)
     - [【难度★★★☆☆】第15章：返回Insert操作自增索引值](https://articles.zsxq.com/id_gwfa0x8nciwn.html)
-    - [x] 第16章：解析含标签的动态SQL语句
-    - [x] 第17章：Plugin 插件扩展
-    - [x] 第18章：一级缓存
+    - [【难度★★★☆☆】第16章：解析含标签的动态SQL语句](https://articles.zsxq.com/id_1rzspttev8ls.html) 
+    - [【难度★★★★☆】第17章：Plugin 插件扩展](https://articles.zsxq.com/id_k7havmcaefdk.html)
+    - [【难度★★☆☆☆】第18章：一级缓存](https://articles.zsxq.com/id_8d0o471we1ig.html)
     - [x] 第19章：二级缓存
     - [x] 第20章：整合Spring
     
