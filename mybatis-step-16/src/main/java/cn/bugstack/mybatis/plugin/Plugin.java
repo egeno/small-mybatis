@@ -93,6 +93,7 @@ public class Plugin implements InvocationHandler {
     private static Class<?>[] getAllInterfaces(Class<?> type, Map<Class<?>, Set<Method>> signatureMap) {
         Set<Class<?>> interfaces = new HashSet<Class<?>>();
         while (type != null) {
+            //type.getInterfaces  获取实现类所实现的所有接口
             for (Class<?> c : type.getInterfaces()) {
                 // 拦截 ParameterHandler|ResultSetHandler|StatementHandler|Executor
                 if (signatureMap.containsKey(c)) {
